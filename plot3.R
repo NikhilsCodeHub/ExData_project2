@@ -8,9 +8,11 @@ library(ggplot2)
 NEI <- readRDS("summarySCC_PM25.rds")
 NEI<-tbl_df(NEI)
 
-## Filter for Baltimore City, Maryland fips =="24510"
+## Filter for Baltimore City, Maryland using fips =="24510" and Group Data by Year & Type and Summarise
 plot1DF<- NEI %>% filter(fips=="24510") %>%
     group_by(year, type) %>% summarise(sum(Emissions))
+
+## update column names
 colnames(plot1DF)=c("Year", "Type", "Total_Emissions")
 
 ## Using ggplot and line color to identify sources with decreased emissions.
