@@ -1,4 +1,4 @@
-### Plot 1
+### Plot 2
 
 ## Load Dplyr 
 library(dplyr)
@@ -6,19 +6,23 @@ library(dplyr)
 ## Read and Groupby data for the Plot1
 NEI <- readRDS("summarySCC_PM25.rds")
 NEI<-tbl_df(NEI)
-plot1DF<-group_by(NEI, year) %>% summarise(sum(Emissions))
+
+## Filter for Baltimore City, Maryland fips =="24510"
+plot1DF<- NEI %>% filter(fips=="24510") %>%
+group_by(year) %>% summarise(sum(Emissions))
 colnames(plot1DF)=c("Year", "Total_Emissions")
+
 
 ## Begin Base PLotting functions
 # setup par function with line width= 5, lables=horizontal, margins, magnification of axes for clarity
-par(lwd=5, las=1, mar=c(5,5,3,2), mgp=c(4,1,0))
-plot(plot1DF$Year, plot1DF$Total_Emissions, xlim=c(1998, 2009), ylim=c(3000000, 7500000),type="n", xlab="Year", ylab="Total Emissions")
+par(lwd=5, las=1, mar=c(6,5,4,2), mgp=c(4,1,0))
+plot(plot1DF$Year, plot1DF$Total_Emissions,  type="n", xlab="Year", ylab="Total Emissions")
 lines(plot1DF$Year, plot1DF$Total_Emissions, type="l" )
 points(plot1DF$Year, plot1DF$Total_Emissions, pch=19, col="blue")
-title("Trend of PM2.5 Emission")
+title("Annual PM2.5 Emissions \n for Balitmore City, Maryland")
 par(lwd=2)
 legend("topright", legend="PM2.5 Emission", pch=19, col="blue" )
-dev.copy(png, "plot1.png", width=480, height=480, units="px")
+dev.copy(png, "plot2.png", width=480, height=480, units="px")
 dev.off()
 
 
