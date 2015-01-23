@@ -18,7 +18,7 @@ colnames(plot1DF)=c("Year", "Type", "Total_Emissions")
 ## Using ggplot and line color to identify sources with decreased emissions.
 g<-ggplot(plot1DF, aes(Year,Total_Emissions)) + geom_line(aes(color=Type), size=2)
 print(g)
-dev.copy(png, "plot3.png", width=480, height=480, units="px")
+dev.copy(png, "plot3.png", width=600, height=600, units="px")
 dev.off()
 
 ## Another way of looking at this is to use faceting, as below.

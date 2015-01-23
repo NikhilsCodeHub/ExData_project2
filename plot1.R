@@ -9,6 +9,7 @@ NEI<-tbl_df(NEI)
 
 ##=== group the data by Year
 plot1DF<-group_by(NEI, year) %>% summarise(sum(Emissions))
+##=== update column names
 colnames(plot1DF)=c("Year", "Total_Emissions")
 
 ##=== Begin Base PLotting functions
@@ -25,7 +26,7 @@ lines(plot1DF$Year, plot1DF$Total_Emissions, type="l" )
 points(plot1DF$Year, plot1DF$Total_Emissions, pch=19, col="blue")
 
 #--- Set Title
-title("Trend of PM2.5 Emission in US")
+title("Annual PM2.5 Emission in US")
 par(lwd=2)
 
 #--- Set Legend
