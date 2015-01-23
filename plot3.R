@@ -2,6 +2,7 @@
 
 ## Load Dplyr 
 library(dplyr)
+library(ggplot2)
 
 ## Read and Groupby data for the Plot1
 NEI <- readRDS("summarySCC_PM25.rds")
