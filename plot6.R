@@ -43,8 +43,8 @@ colnames(plotData)=c("CalYear", "Fips" ,"Total_Emissions")
 ## Using ggplot and line color to identify sources with decreased emissions by Type.
 g<-ggplot(plotData, aes(CalYear,Total_Emissions)) + 
     geom_line(aes(color=Fips), size=2) +
-    labs(title="Total PM2.5 Emissions from Motor Vehicles \n in Los Angeles County and Baltimore City") +
-    theme(plot.title=element_text(color="brown", size=16, face="bold"))
+    labs(title="Total PM2.5 Emissions from Motor Vehicles \n in Baltimore City and Los Angeles County") +
+    theme(plot.title=element_text(color="brown", size=16, face="bold"), legend.title=element_text(color="Navy", size=12, face="bold"), axis.title=element_text(color="black", size=14, face="bold"))
 
 ##
 ## g<-ggplot(plotData, aes(CalYear,Total_Emissions)) + geom_line(colour="lightgreen",size=2) + facet_grid(.~Fips) +
