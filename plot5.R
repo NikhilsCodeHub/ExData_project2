@@ -39,7 +39,7 @@ plotData<- plotData %>%
 colnames(plotData)=c("CalYear", "Total_Emissions")
 
 
-## Using ggplot and line color to identify sources with decreased emissions by Type.
+## Using ggplot 
 g<-ggplot(plotData, aes(CalYear,Total_Emissions)) + 
     geom_line(size=2) +
     labs(title="Total PM2.5 Emissions from Motor Vehicles \n in Baltimore City ") +
